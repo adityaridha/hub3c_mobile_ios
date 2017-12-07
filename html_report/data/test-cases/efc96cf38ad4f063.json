@@ -1,0 +1,85 @@
+{
+  "uid" : "efc96cf38ad4f063",
+  "name" : "TestProject.test_arcived_project",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_arcived_project",
+  "historyId" : "858ca16eac27a0823aeb3161e13146f6",
+  "time" : {
+    "start" : 1512457912187,
+    "stop" : 1512457912561,
+    "duration" : 374
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "2c8413482abeeebc",
+      "name" : "Captured stderr setup",
+      "source" : "2c8413482abeeebc.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "12660-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_arcived_project"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "ff2241bd9b82fbb",
+      "status" : "passed",
+      "time" : {
+        "start" : 1512454821919,
+        "stop" : 1512454822070,
+        "duration" : 151
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "efc96cf38ad4f063.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}

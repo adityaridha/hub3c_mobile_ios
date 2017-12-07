@@ -1,0 +1,80 @@
+{
+  "uid" : "a2fd66d2c9e77068",
+  "name" : "TestProject.test_create_project_all_form_filled",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_create_project_all_form_filled",
+  "historyId" : "52e092bfe84fd9e9ad803964f32d136d",
+  "time" : {
+    "start" : 1512454595387,
+    "stop" : 1512454671376,
+    "duration" : 75989
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "b957cfdef776eac4",
+      "name" : "Captured stdout call",
+      "source" : "b957cfdef776eac4.txt",
+      "type" : "text/plain",
+      "size" : 242
+    }, {
+      "uid" : "bf13a6c408b9cbc0",
+      "name" : "Captured stderr setup",
+      "source" : "bf13a6c408b9cbc0.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "6176-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_create_project_all_form_filled"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "extra" : {
+    "tags" : [ ]
+  },
+  "source" : "a2fd66d2c9e77068.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,85 @@
+{
+  "uid" : "36e6dcc3e6c55a50",
+  "name" : "TestProject.test_search_project",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_search_project",
+  "historyId" : "5eae189a1f3755ce789cf9433545478",
+  "time" : {
+    "start" : 1512457911389,
+    "stop" : 1512457912183,
+    "duration" : 794
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "b2e64658188f1e54",
+      "name" : "Captured stderr setup",
+      "source" : "b2e64658188f1e54.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "12660-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_search_project"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ {
+      "uid" : "e8b1c7a28b0c61ad",
+      "status" : "passed",
+      "time" : {
+        "start" : 1512454821751,
+        "stop" : 1512454821915,
+        "duration" : 164
+      }
+    } ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "36e6dcc3e6c55a50.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,74 @@
+{
+  "uid" : "ff2241bd9b82fbb",
+  "name" : "TestProject.test_arcived_project",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_arcived_project",
+  "historyId" : "858ca16eac27a0823aeb3161e13146f6",
+  "time" : {
+    "start" : 1512454821919,
+    "stop" : 1512454822070,
+    "duration" : 151
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "1a1ec66e9a8a371d",
+      "name" : "Captured stderr setup",
+      "source" : "1a1ec66e9a8a371d.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "6176-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_arcived_project"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "extra" : {
+    "tags" : [ ]
+  },
+  "source" : "ff2241bd9b82fbb.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}

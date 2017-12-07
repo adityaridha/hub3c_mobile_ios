@@ -1,0 +1,179 @@
+{
+  "afc6862c0a4d47741d6f03207c582fab" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ea17e97a512316e4",
+      "status" : "failed",
+      "statusDetails" : "NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n",
+      "time" : {
+        "start" : 1512457762799,
+        "stop" : 1512457847801,
+        "duration" : 85002
+      }
+    } ]
+  },
+  "96bbc310a27e4609293b36ffa7c60192" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2e62ed06924f4b2f",
+      "status" : "failed",
+      "statusDetails" : "NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n",
+      "time" : {
+        "start" : 1512457880065,
+        "stop" : 1512457893884,
+        "duration" : 13819
+      }
+    } ]
+  },
+  "1f5076374dcb26d856f4ea1c6eb24da" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4667cd3dab74ae3c",
+      "status" : "failed",
+      "statusDetails" : "NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n",
+      "time" : {
+        "start" : 1512457894474,
+        "stop" : 1512457911185,
+        "duration" : 16711
+      }
+    } ]
+  },
+  "341b9f3854cdde39f514d5429553e291" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d706ac4117f5a98e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1512457912567,
+        "stop" : 1512457913319,
+        "duration" : 752
+      }
+    } ]
+  },
+  "903f69b3ff5b3b8d91027a55209f2085" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bb2c93add17af9e6",
+      "status" : "failed",
+      "statusDetails" : "NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n",
+      "time" : {
+        "start" : 1512457864315,
+        "stop" : 1512457879409,
+        "duration" : 15094
+      }
+    } ]
+  },
+  "5de7bead67a457fe3ccc333d8c612d78" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "f8d356efa29286ea",
+      "status" : "failed",
+      "statusDetails" : "NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n",
+      "time" : {
+        "start" : 1512457740903,
+        "stop" : 1512457762485,
+        "duration" : 21582
+      }
+    } ]
+  },
+  "858ca16eac27a0823aeb3161e13146f6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "efc96cf38ad4f063",
+      "status" : "passed",
+      "time" : {
+        "start" : 1512457912187,
+        "stop" : 1512457912561,
+        "duration" : 374
+      }
+    } ]
+  },
+  "5eae189a1f3755ce789cf9433545478" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "36e6dcc3e6c55a50",
+      "status" : "passed",
+      "time" : {
+        "start" : 1512457911389,
+        "stop" : 1512457912183,
+        "duration" : 794
+      }
+    } ]
+  },
+  "52e092bfe84fd9e9ad803964f32d136d" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a43775f0140273ac",
+      "status" : "failed",
+      "statusDetails" : "NoSuchElementException: Message: An element could not be located on the page using the given search parameters.\n",
+      "time" : {
+        "start" : 1512457848360,
+        "stop" : 1512457864129,
+        "duration" : 15769
+      }
+    } ]
+  }
+}

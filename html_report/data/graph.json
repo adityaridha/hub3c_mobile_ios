@@ -1,0 +1,91 @@
+[ {
+  "uid" : "4667cd3dab74ae3c",
+  "name" : "TestProject.test_delete_project",
+  "time" : {
+    "start" : 1512457894474,
+    "stop" : 1512457911185,
+    "duration" : 16711
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "a43775f0140273ac",
+  "name" : "TestProject.test_create_project_all_form_filled",
+  "time" : {
+    "start" : 1512457848360,
+    "stop" : 1512457864129,
+    "duration" : 15769
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "efc96cf38ad4f063",
+  "name" : "TestProject.test_arcived_project",
+  "time" : {
+    "start" : 1512457912187,
+    "stop" : 1512457912561,
+    "duration" : 374
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bb2c93add17af9e6",
+  "name" : "TestProject.test_create_project_with_two_project_owner",
+  "time" : {
+    "start" : 1512457864315,
+    "stop" : 1512457879409,
+    "duration" : 15094
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "d706ac4117f5a98e",
+  "name" : "TestProject.test_start_project",
+  "time" : {
+    "start" : 1512457912567,
+    "stop" : 1512457913319,
+    "duration" : 752
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ea17e97a512316e4",
+  "name" : "TestProject.test_create_project_with_unidentified_team_member",
+  "time" : {
+    "start" : 1512457762799,
+    "stop" : 1512457847801,
+    "duration" : 85002
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "36e6dcc3e6c55a50",
+  "name" : "TestProject.test_search_project",
+  "time" : {
+    "start" : 1512457911389,
+    "stop" : 1512457912183,
+    "duration" : 794
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f8d356efa29286ea",
+  "name" : "TestProject.test_create_project_minimum_req",
+  "time" : {
+    "start" : 1512457740903,
+    "stop" : 1512457762485,
+    "duration" : 21582
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "2e62ed06924f4b2f",
+  "name" : "TestProject.test_edit_project",
+  "time" : {
+    "start" : 1512457880065,
+    "stop" : 1512457893884,
+    "duration" : 13819
+  },
+  "status" : "failed",
+  "severity" : "normal"
+} ]

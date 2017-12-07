@@ -1,0 +1,16 @@
+Dadshboard page is compleately loaded
+Create project is Ready
+swipe success
+swipe success
+next
+Add team member page is ready
+1
+swipe success
+swipe success
+next
+1
+swipe success
+swipe success
+swipe success
+Complete button detected
+tap complete

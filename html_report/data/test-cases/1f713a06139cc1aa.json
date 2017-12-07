@@ -1,0 +1,80 @@
+{
+  "uid" : "1f713a06139cc1aa",
+  "name" : "TestProject.test_delete_project",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_delete_project",
+  "historyId" : "1f5076374dcb26d856f4ea1c6eb24da",
+  "time" : {
+    "start" : 1512454793929,
+    "stop" : 1512454821743,
+    "duration" : 27814
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "fe1e9d4bca343e27",
+      "name" : "Captured stdout call",
+      "source" : "fe1e9d4bca343e27.txt",
+      "type" : "text/plain",
+      "size" : 55
+    }, {
+      "uid" : "8ddc852e0bc73360",
+      "name" : "Captured stderr setup",
+      "source" : "8ddc852e0bc73360.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "6176-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_delete_project"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "extra" : {
+    "tags" : [ ]
+  },
+  "source" : "1f713a06139cc1aa.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}

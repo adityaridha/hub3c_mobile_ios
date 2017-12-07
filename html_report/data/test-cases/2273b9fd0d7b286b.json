@@ -1,0 +1,80 @@
+{
+  "uid" : "2273b9fd0d7b286b",
+  "name" : "TestProject.test_create_project_minimum_req",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_create_project_minimum_req",
+  "historyId" : "5de7bead67a457fe3ccc333d8c612d78",
+  "time" : {
+    "start" : 1512454488693,
+    "stop" : 1512454519514,
+    "duration" : 30821
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "d480adc4b352864d",
+      "name" : "Captured stdout call",
+      "source" : "d480adc4b352864d.txt",
+      "type" : "text/plain",
+      "size" : 130
+    }, {
+      "uid" : "45e1cef1dd0b17cc",
+      "name" : "Captured stderr setup",
+      "source" : "45e1cef1dd0b17cc.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "6176-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_create_project_minimum_req"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "extra" : {
+    "tags" : [ ]
+  },
+  "source" : "2273b9fd0d7b286b.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,1019 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1512457740903" stop="1512457913319">
+  <name>hub3c_mobile_android.test_cases.test_project</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1512457740903" status="failed" stop="1512457762485">
+      <name>TestProject.test_create_project_minimum_req</name>
+      <failure>
+        <message>NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+</message>
+        <stack-trace>self = &lt;hub3c_mobile_android.test_cases.test_project.TestProject object at 0x04535BF0&gt;
+
+    def test_create_project_minimum_req(self):
+&gt;       login.login(email="transsystem@mailinator.com", password="ZXasqw12")
+
+test_project.py:27: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\page\login.py:34: in login
+    self.driver.find_element_by_id(self.username_id).send_keys(email)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:271: in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:756: in find_element
+    'value': value})['value']
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:238: in execute
+    self.error_handler.check_response(response)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:29: in check_response
+    raise wde
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:24: in check_response
+    super(MobileErrorHandler, self).check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;appium.webdriver.errorhandler.MobileErrorHandler object at 0x045D49F0&gt;
+response = {'status': 500, 'value': '{"status":7,"value":{"message":"An element could not be located on the page using the given search parameters."},"sessionId":"6109fa7a-c113-49ca-a7b9-0bc8b172f595"}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '&lt;anonymous&gt;')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '&lt;anonymous&gt;')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py:193: NoSuchElementException</stack-trace>
+      </failure>
+      <attachments>
+        <attachment source="43842f4d-cf72-43df-9a9f-533b45049e45-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457762799" status="failed" stop="1512457847801">
+      <name>TestProject.test_create_project_with_unidentified_team_member</name>
+      <failure>
+        <message>NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+</message>
+        <stack-trace>self = &lt;hub3c_mobile_android.test_cases.test_project.TestProject object at 0x0118EF70&gt;
+
+    def test_create_project_with_unidentified_team_member(self):
+        login.login(email="transsystem@mailinator.com", password="ZXasqw12")
+        dashboard.verified_all_element()
+        navbar.tap_feature_menu()
+        feature_menu.tap_projects()
+        project.tap_create_new_project()
+    
+        ### ############### input basic information
+        create_project.verified_form()
+        create_project.input_project_title()
+        create_project.input_project_code()
+        create_project.input_project_desc()
+        util.swipe_to_buttom()
+        create_project.set_reminder_date()
+        util.swipe_to_buttom()
+        create_project.tap_next()
+    
+        ### ############### Add team member project
+        create_project.input_team_member_name(teamm_ember_name="Aditya Ridha")
+        create_project.set_project_role()
+        create_project.set_hourly_rate()
+        util.swipe_to_buttom()
+        create_project.tap_add_member_button()
+&gt;       create_project.tap_option_team_member()
+
+test_project.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\page\projects_module\create_new_project_form.py:158: in tap_option_team_member
+    self.driver.find_element_by_xpath(self.project_creator_option).click()
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:295: in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:756: in find_element
+    'value': value})['value']
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:238: in execute
+    self.error_handler.check_response(response)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:29: in check_response
+    raise wde
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:24: in check_response
+    super(MobileErrorHandler, self).check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;appium.webdriver.errorhandler.MobileErrorHandler object at 0x045D49F0&gt;
+response = {'status': 500, 'value': '{"status":7,"value":{"message":"An element could not be located on the page using the given search parameters."},"sessionId":"6109fa7a-c113-49ca-a7b9-0bc8b172f595"}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '&lt;anonymous&gt;')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '&lt;anonymous&gt;')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py:193: NoSuchElementException</stack-trace>
+      </failure>
+      <attachments>
+        <attachment source="a0a021a2-c50d-4067-b894-2ef85e5203ea-attachment.txt" title="Captured stdout call" type="text/plain"/>
+        <attachment source="ace06ed3-f3fa-4c15-8829-0b4a16f28761-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457848360" status="failed" stop="1512457864129">
+      <name>TestProject.test_create_project_all_form_filled</name>
+      <failure>
+        <message>NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+</message>
+        <stack-trace>self = &lt;hub3c_mobile_android.test_cases.test_project.TestProject object at 0x022246D0&gt;
+
+    def test_create_project_all_form_filled(self):
+&gt;       login.login(email="transsystem@mailinator.com", password="ZXasqw12")
+
+test_project.py:76: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\page\login.py:34: in login
+    self.driver.find_element_by_id(self.username_id).send_keys(email)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:271: in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:756: in find_element
+    'value': value})['value']
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:238: in execute
+    self.error_handler.check_response(response)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:29: in check_response
+    raise wde
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:24: in check_response
+    super(MobileErrorHandler, self).check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;appium.webdriver.errorhandler.MobileErrorHandler object at 0x045D49F0&gt;
+response = {'status': 500, 'value': '{"status":7,"value":{"message":"An element could not be located on the page using the given search parameters."},"sessionId":"6109fa7a-c113-49ca-a7b9-0bc8b172f595"}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '&lt;anonymous&gt;')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '&lt;anonymous&gt;')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py:193: NoSuchElementException</stack-trace>
+      </failure>
+      <attachments>
+        <attachment source="4b6478cb-b4e7-4daa-a979-1cf8bd07c41b-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457864315" status="failed" stop="1512457879409">
+      <name>TestProject.test_create_project_with_two_project_owner</name>
+      <failure>
+        <message>NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+</message>
+        <stack-trace>self = &lt;hub3c_mobile_android.test_cases.test_project.TestProject object at 0x04520830&gt;
+
+    def test_create_project_with_two_project_owner(self):
+&gt;       login.login(email="transsystem@mailinator.com", password="ZXasqw12")
+
+test_project.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\page\login.py:34: in login
+    self.driver.find_element_by_id(self.username_id).send_keys(email)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:271: in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:756: in find_element
+    'value': value})['value']
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:238: in execute
+    self.error_handler.check_response(response)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:29: in check_response
+    raise wde
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:24: in check_response
+    super(MobileErrorHandler, self).check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;appium.webdriver.errorhandler.MobileErrorHandler object at 0x045D49F0&gt;
+response = {'status': 500, 'value': '{"status":7,"value":{"message":"An element could not be located on the page using the given search parameters."},"sessionId":"6109fa7a-c113-49ca-a7b9-0bc8b172f595"}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '&lt;anonymous&gt;')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '&lt;anonymous&gt;')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py:193: NoSuchElementException</stack-trace>
+      </failure>
+      <attachments>
+        <attachment source="6fea82c5-bd1e-424e-a375-ceb3b2b720c3-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457880065" status="failed" stop="1512457893884">
+      <name>TestProject.test_edit_project</name>
+      <failure>
+        <message>NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+</message>
+        <stack-trace>self = &lt;hub3c_mobile_android.test_cases.test_project.TestProject object at 0x0167A570&gt;
+
+    def test_edit_project(self):
+&gt;       login.login(email="transsystem@mailinator.com", password="ZXasqw12")
+
+test_project.py:162: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\page\login.py:34: in login
+    self.driver.find_element_by_id(self.username_id).send_keys(email)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:271: in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:756: in find_element
+    'value': value})['value']
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:238: in execute
+    self.error_handler.check_response(response)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:29: in check_response
+    raise wde
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:24: in check_response
+    super(MobileErrorHandler, self).check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;appium.webdriver.errorhandler.MobileErrorHandler object at 0x045D49F0&gt;
+response = {'status': 500, 'value': '{"status":7,"value":{"message":"An element could not be located on the page using the given search parameters."},"sessionId":"6109fa7a-c113-49ca-a7b9-0bc8b172f595"}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '&lt;anonymous&gt;')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '&lt;anonymous&gt;')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py:193: NoSuchElementException</stack-trace>
+      </failure>
+      <attachments>
+        <attachment source="0f7f74f0-8cf8-4ae6-953b-3c58796eac77-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457894474" status="failed" stop="1512457911185">
+      <name>TestProject.test_delete_project</name>
+      <failure>
+        <message>NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+</message>
+        <stack-trace>self = &lt;hub3c_mobile_android.test_cases.test_project.TestProject object at 0x0458FBF0&gt;
+
+    def test_delete_project(self):
+&gt;       login.login(email="transsystem@mailinator.com", password="ZXasqw12")
+
+test_project.py:180: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\page\login.py:34: in login
+    self.driver.find_element_by_id(self.username_id).send_keys(email)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:271: in find_element_by_id
+    return self.find_element(by=By.ID, value=id_)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:756: in find_element
+    'value': value})['value']
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\webdriver.py:238: in execute
+    self.error_handler.check_response(response)
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:29: in check_response
+    raise wde
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\appium\webdriver\errorhandler.py:24: in check_response
+    super(MobileErrorHandler, self).check_response(response)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;appium.webdriver.errorhandler.MobileErrorHandler object at 0x045D49F0&gt;
+response = {'status': 500, 'value': '{"status":7,"value":{"message":"An element could not be located on the page using the given search parameters."},"sessionId":"6109fa7a-c113-49ca-a7b9-0bc8b172f595"}'}
+
+    def check_response(self, response):
+        """
+            Checks that a JSON response from the WebDriver does not have an error.
+    
+            :Args:
+             - response - The JSON response from the WebDriver server as a dictionary
+               object.
+    
+            :Raises: If the response contains an error message.
+            """
+        status = response.get('status', None)
+        if status is None or status == ErrorCode.SUCCESS:
+            return
+        value = None
+        message = response.get("message", "")
+        screen = response.get("screen", "")
+        stacktrace = None
+        if isinstance(status, int):
+            value_json = response.get('value', None)
+            if value_json and isinstance(value_json, basestring):
+                import json
+                try:
+                    value = json.loads(value_json)
+                    if len(value.keys()) == 1:
+                        value = value['value']
+                    status = value.get('error', None)
+                    if status is None:
+                        status = value["status"]
+                        message = value["value"]
+                        if not isinstance(message, basestring):
+                            value = message
+                            try:
+                                message = message['message']
+                            except TypeError:
+                                message = None
+                    else:
+                        message = value.get('message', None)
+                except ValueError:
+                    pass
+    
+        exception_class = ErrorInResponseException
+        if status in ErrorCode.NO_SUCH_ELEMENT:
+            exception_class = NoSuchElementException
+        elif status in ErrorCode.NO_SUCH_FRAME:
+            exception_class = NoSuchFrameException
+        elif status in ErrorCode.NO_SUCH_WINDOW:
+            exception_class = NoSuchWindowException
+        elif status in ErrorCode.STALE_ELEMENT_REFERENCE:
+            exception_class = StaleElementReferenceException
+        elif status in ErrorCode.ELEMENT_NOT_VISIBLE:
+            exception_class = ElementNotVisibleException
+        elif status in ErrorCode.INVALID_ELEMENT_STATE:
+            exception_class = InvalidElementStateException
+        elif status in ErrorCode.INVALID_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR \
+                or status in ErrorCode.INVALID_XPATH_SELECTOR_RETURN_TYPER:
+            exception_class = InvalidSelectorException
+        elif status in ErrorCode.ELEMENT_IS_NOT_SELECTABLE:
+            exception_class = ElementNotSelectableException
+        elif status in ErrorCode.INVALID_COOKIE_DOMAIN:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNABLE_TO_SET_COOKIE:
+            exception_class = WebDriverException
+        elif status in ErrorCode.TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.SCRIPT_TIMEOUT:
+            exception_class = TimeoutException
+        elif status in ErrorCode.UNKNOWN_ERROR:
+            exception_class = WebDriverException
+        elif status in ErrorCode.UNEXPECTED_ALERT_OPEN:
+            exception_class = UnexpectedAlertPresentException
+        elif status in ErrorCode.NO_ALERT_OPEN:
+            exception_class = NoAlertPresentException
+        elif status in ErrorCode.IME_NOT_AVAILABLE:
+            exception_class = ImeNotAvailableException
+        elif status in ErrorCode.IME_ENGINE_ACTIVATION_FAILED:
+            exception_class = ImeActivationFailedException
+        elif status in ErrorCode.MOVE_TARGET_OUT_OF_BOUNDS:
+            exception_class = MoveTargetOutOfBoundsException
+        else:
+            exception_class = WebDriverException
+        if value == '' or value is None:
+            value = response['value']
+        if isinstance(value, basestring):
+            if exception_class == ErrorInResponseException:
+                raise exception_class(response, value)
+            raise exception_class(value)
+        if message == "" and 'message' in value:
+            message = value['message']
+    
+        screen = None
+        if 'screen' in value:
+            screen = value['screen']
+    
+        stacktrace = None
+        if 'stackTrace' in value and value['stackTrace']:
+            stacktrace = []
+            try:
+                for frame in value['stackTrace']:
+                    line = self._value_or_default(frame, 'lineNumber', '')
+                    file = self._value_or_default(frame, 'fileName', '&lt;anonymous&gt;')
+                    if line:
+                        file = "%s:%s" % (file, line)
+                    meth = self._value_or_default(frame, 'methodName', '&lt;anonymous&gt;')
+                    if 'className' in frame:
+                        meth = "%s.%s" % (frame['className'], meth)
+                    msg = "    at %s (%s)"
+                    msg = msg % (meth, file)
+                    stacktrace.append(msg)
+            except TypeError:
+                pass
+        if exception_class == ErrorInResponseException:
+            raise exception_class(response, message)
+        elif exception_class == UnexpectedAlertPresentException and 'alert' in value:
+            raise exception_class(message, screen, stacktrace, value['alert'].get('text'))
+&gt;       raise exception_class(message, screen, stacktrace)
+E       selenium.common.exceptions.NoSuchElementException: Message: An element could not be located on the page using the given search parameters.
+
+C:\Users\Geekseat\AppData\Local\Programs\Python\Python35-32\lib\site-packages\selenium\webdriver\remote\errorhandler.py:193: NoSuchElementException</stack-trace>
+      </failure>
+      <attachments>
+        <attachment source="35baa376-4ef5-4f7d-9375-f6ad3f789089-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457911389" status="passed" stop="1512457912183">
+      <name>TestProject.test_search_project</name>
+      <attachments>
+        <attachment source="5d792a50-8240-481e-bd38-f0c5f41725a7-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457912187" status="passed" stop="1512457912561">
+      <name>TestProject.test_arcived_project</name>
+      <attachments>
+        <attachment source="b87f67dd-0889-421f-8484-6b3e6f60ae10-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+    <test-case start="1512457912567" status="passed" stop="1512457913319">
+      <name>TestProject.test_start_project</name>
+      <attachments>
+        <attachment source="65d531fd-931d-43d7-bab9-a5e656fae3bb-attachment.txt" title="Captured stderr setup" type="text/plain"/>
+      </attachments>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="12660-MainThread"/>
+        <label name="host" value="DESKTOP-T8C7ART"/>
+      </labels>
+      <steps/>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>

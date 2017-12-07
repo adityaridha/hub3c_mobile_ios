@@ -1,0 +1,80 @@
+{
+  "uid" : "c6758262ac15b85",
+  "name" : "TestProject.test_create_project_with_two_project_owner",
+  "fullName" : "hub3c_mobile_android.test_cases.test_project.TestProject.test_create_project_with_two_project_owner",
+  "historyId" : "903f69b3ff5b3b8d91027a55209f2085",
+  "time" : {
+    "start" : 1512454671382,
+    "stop" : 1512454750186,
+    "duration" : 78804
+  },
+  "description" : "",
+  "descriptionHtml" : "",
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "e26a77ea49e031c9",
+      "name" : "Captured stdout call",
+      "source" : "e26a77ea49e031c9.txt",
+      "type" : "text/plain",
+      "size" : 242
+    }, {
+      "uid" : "51eb69a652cfa181",
+      "name" : "Captured stderr setup",
+      "source" : "51eb69a652cfa181.txt",
+      "type" : "text/plain",
+      "size" : 38
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-T8C7ART"
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "6176-MainThread"
+  }, {
+    "name" : "suite",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testClass",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "testMethod",
+    "value" : "TestProject.test_create_project_with_two_project_owner"
+  }, {
+    "name" : "package",
+    "value" : "hub3c_mobile_android.test_cases.test_project"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure1"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "extra" : {
+    "tags" : [ ]
+  },
+  "source" : "c6758262ac15b85.json",
+  "statusDetailsSafe" : {
+    "flaky" : false
+  },
+  "statusMessage" : {
+    "present" : false
+  },
+  "parameterValues" : [ ]
+}
