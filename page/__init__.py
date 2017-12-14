@@ -3,6 +3,7 @@ from page.dashboard import *
 from page.navigation_bar import *
 from page.feature_menu import *
 from page.user_profile import *
+from page.forgot_password import *
 from page.projects_module.project_detail import *
 from page.projects_module.create_new_project_form import *
 from page.projects_module.project_list import *

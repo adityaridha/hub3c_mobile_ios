@@ -6,13 +6,12 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 class Feature():
 
-    business = "//*[@text='Business network']"
-    job2job = "au.geekseat.com.hub3candroid:id/sideNavJob2job"
-    project = "//*[@text='Projects']"
-    profile_picture = "au.geekseat.com.hub3candroid:id/imageProfile"
-    header = "au.geekseat.com.hub3candroid:id/containerSideNavHeader"
-    arrow_nav = "(//*[@id='sideNavHeader']/*[@class='android.widget.ImageView'])[2]"
-    cancel = "au.geekseat.com.hub3candroid:id/edit_cancel"
+    loc_network_name = "Network"
+    loc_job2job_name = "Job2Job"
+    loc_prject_name = "Project"
+    loc_image_xpath = '//XCUIElementTypeApplication[@name="Hub3c"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]/XCUIElementTypeImage'
+    loc_close_id = "Close"
+    loc_cell_header = '//XCUIElementTypeApplication[@name="Hub3c"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTable/XCUIElementTypeCell[1]'
 
     def __init__(self, driver):
         self.driver = driver
@@ -22,21 +21,36 @@ class Feature():
 
     def tap_projects(self):
         try:
-            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.XPATH, self.project)))
-            self.driver.find_element_by_xpath(self.project).click()
+            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.XPATH, self.loc_prject_name)))
         except TimeoutException:
             print("Project module not found")
+
+        self.driver.find_element_by_xpath(self.loc_prject_name).click()
 
     def tap_job2job(self):
         pass
 
-    def tap_header(self):
+    def tap_header(self, user_name=None):
 
-        try:
-            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.ID, self.profile_picture)))
-            self.driver.find_element_by_id(self.profile_picture).click()
-        except TimeoutException:
-            print("element not ready")
+        if user_name == None:
+            try:
+                WebDriverWait(self.driver, 30).until(ec.presence_of_element_located((By.XPATH, self.loc_cell_header)))
+            except TimeoutException:
+                print("ERRAWR : Somehow header is not located, check element locator !!")
+            self.driver.find_element_by_xpath(self.loc_cell_header).click()
+
+        else:
+            # locator = "//XCUIElementTypeStaticText[@name='{}']".format(user_name)
+            try:
+                WebDriverWait(self.driver, 30).until(ec.presence_of_element_located((By.ID, user_name)))
+            except TimeoutException:
+                print("ERRAWR : Somehow header is not located, check element locator !!")
+            self.driver.find_element_by_id(user_name).click()
+
+        print("Tap Header")
+
+
+
 
     def tap_arrow_nav(self):
         pass

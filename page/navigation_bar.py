@@ -9,11 +9,11 @@ import time
 class Navbar():
 
 
-    dashboard = "au.geekseat.com.hub3candroid:id/tab_dashboard"
-    business_profile = "au.geekseat.com.hub3candroid:id/tab_business"
-    team_member = "au.geekseat.com.hub3candroid:id/tab_member"
-    business_network = "au.geekseat.com.hub3candroid:id/tab_business_network"
-    features = "au.geekseat.com.hub3candroid:id/tab_profile"
+    dashboard_xpath = "//XCUIElementTypeApplication[@name='Hub3c']/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeTabBar/XCUIElementTypeButton[1]"
+    comp_prof_xpath = "//XCUIElementTypeApplication[@name='Hub3c']/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeTabBar/XCUIElementTypeButton[2]"
+    team_member_id = "Team Member"
+    network_xpath = "//XCUIElementTypeButton[@name='Network']"
+    features_id = "Menu"
 
     def __init__(self, driver):
         self.driver = driver
@@ -28,5 +28,11 @@ class Navbar():
         pass
 
     def tap_feature_menu(self):
-        time.sleep(1)
-        self.driver.find_element_by_id(self.features).click()
+
+        try:
+            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.ID, self.features_id)))
+            print("Features menu is Ready")
+        except TimeoutException:
+            print("Can't tap feature menu")
+
+        self.driver.find_element_by_id(self.features_id).click()

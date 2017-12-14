@@ -15,5 +15,5 @@ desired_caps['udid'] = '49448AA7-E917-44A9-96E9-EE13E28067F0'
 el_login = "//XCUIElementTypeApplication[@name='Hub3c']/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeTextField"
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 login = driver.find_element_by_xpath(el_login)
-login.clear()
-login.send_keys("This is Mac")
+
+print(login)

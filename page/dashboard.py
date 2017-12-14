@@ -6,25 +6,25 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 class Dashboard():
 
 
-    notif = "au.geekseat.com.hub3candroid:id/notification_counter"
-    connected = "au.geekseat.com.hub3candroid:id/textLinkConnected"
-    pending = "au.geekseat.com.hub3candroid:id/textLinkPending"
-    request = "au.geekseat.com.hub3candroid:id/textLinkRequests"
-    invite_business = "au.geekseat.com.hub3candroid:id/textLinkInviteBusiness"
-    members = "au.geekseat.com.hub3candroid:id/textLinkMembers"
-    invite_member = "au.geekseat.com.hub3candroid:id/textLinkInviteMembers"
+    notif = "notificationIcon"
+    connected = "Connected Company"
+    pending = "Pending Invitations"
+    request = "Connect Request"
+    invite_companies = "Invite Companies"
+    members = "Members"
+    invite_member = "Invite Team Member"
 
     def __init__(self, driver):
         self.driver = driver
 
     def verified_all_element(self):
         try:
-            WebDriverWait(self.driver, 30).until(ec.presence_of_element_located((By.ID, self.connected)))
+            WebDriverWait(self.driver, 60).until(ec.presence_of_element_located((By.ID, self.connected)))
             WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.ID, self.pending)))
             WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.ID, self.request)))
             print("Dadshboard page is compleately loaded")
         except TimeoutException:
-            print("element not ready")
+            print("Dashboard element not ready")
 
     def tap_notifications(self):
         pass
