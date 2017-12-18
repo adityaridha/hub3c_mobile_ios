@@ -47,7 +47,7 @@ class Helper():
 
         if target_element == None :
             try:
-                TouchAction(self.driver).press(x=341, y=586).move_to(x=0, y=-300).release().perform()
+                TouchAction(self.driver).press(x=341, y=586).move_to(x=0, y=-400).release().perform()
                 # self.driver.swipe(x1, y1, x2, y2, 1000)
                 print("swipe success")
             except :
@@ -59,7 +59,7 @@ class Helper():
 
             n = 4
             while n > 0 :
-                TouchAction(self.driver).press(x=341, y=586).move_to(x=0, y=-300).release().perform()
+                TouchAction(self.driver).press(x=341, y=586).move_to(x=0, y=-400).release().perform()
 
 
                 # self.driver.swipe(x1, y1, x2, y2, 1000)

@@ -11,8 +11,14 @@ class ForgotPassword():
 
     loc_email_xpath = '//XCUIElementTypeApplication[@name="Hub3c"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeTextField'
     loc_reset_btn_id = "Get Reset Link"
-    warning_xpath = '//XCUIElementTypeOther[@name="SCLAlertView"]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextView'
-    unregis_email_allert = 'The Email you entered does not exist. Please try again.'
+    loc_message_warning_xpath = '//XCUIElementTypeOther[@name="SCLAlertView"]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeTextView'
+    value_success = 'Your reset email is processed please check your e-mail'
+    value_unregistered = 'The Email you entered does not exist. Please try again.'
+    value_invalid = 'Invalid email'
+    loc_done_button_id = 'Done'
+    loc_success_alert_id = 'Success'
+    loc_invalid_id = 'Message Info'
+    loc_warning_id = 'Warning'
 
 
     def __init__(self, driver):
@@ -31,12 +37,39 @@ class ForgotPassword():
 
     def verify_email_unregistered(self):
         try:
-            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.XPATH, self.warning_xpath)))
-            warning = self.driver.find_element_by_xpath(self.warning_xpath).get_attribute(name="value")
-            print(warning)
-            if warning != self.unregis_email_allert:
+            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.ID, self.loc_warning_id)))
+            warning = self.driver.find_element_by_xpath(self.loc_message_warning_xpath).get_attribute(name="value")
+            print("\n" + warning)
+            if warning != self.value_unregistered:
                 pytest.fail()
             print("Email is unregistered as expected")
         except TimeoutException:
             print("Warning not found")
+
+    def verify_email_is_sent(self):
+        try:
+            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.ID, self.loc_success_alert_id)))
+            warning = self.driver.find_element_by_xpath(self.loc_message_warning_xpath).get_attribute(name="value")
+            print("\n" + warning)
+            if warning != self.value_success:
+                pytest.fail()
+        except TimeoutException:
+            print("Warning not found")
+
+        self.driver.find_element_by_id(self.loc_done_button_id).click()
+
+    def verify_invalid_format(self):
+        try:
+            WebDriverWait(self.driver, 10).until(ec.presence_of_element_located((By.ID, self.loc_invalid_id)))
+            warning = self.driver.find_element_by_xpath(self.loc_message_warning_xpath).get_attribute(name="value")
+            print("\n" + warning)
+            if self.value_invalid not in warning:
+                pytest.fail()
+        except TimeoutException:
+            print("Warning not found")
+
+
+
+
+
 

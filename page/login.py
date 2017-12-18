@@ -29,8 +29,8 @@ class Login():
         try:
             WebDriverWait(self.driver, 30).until(ec.presence_of_element_located((By.XPATH, self.username_xpath)))
             WebDriverWait(self.driver, 5).until(ec.presence_of_element_located((By.XPATH, self.password_xpath)))
-            print("\n")
-            print("login element is ready")
+            self.driver.find_element_by_id(self.el_icon_id).click()
+            print("\nlogin element is ready")
         except TimeoutException:
             print("login element not ready")
 

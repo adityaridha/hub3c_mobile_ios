@@ -25,7 +25,7 @@ util = utility.Helper(driver)
 
 
 @pytest.fixture()
-def reset_app():
+def reset_app_android():
     os.system("adb shell pm clear au.geekseat.com.hub3candroid")
 
 @pytest.fixture()
@@ -36,7 +36,7 @@ def relogin():
     except TimeoutException:
         is_dashboard = False
 
-    print("is Dashboard : {}".format(is_dashboard))
+    print("\nis Dashboard : {}".format(is_dashboard))
 
     if is_dashboard == True :
         navbar.tap_feature_menu()
@@ -46,5 +46,18 @@ def relogin():
 
     else:
         print("Start with new session")
+
+
+@pytest.mark.hookwrapper
+def pytest_runtest_makereport():
+
+    outcome = yield
+    report = outcome.get_result()
+
+    if report.when == 'call' or report.when == "setup":
+        xfail = hasattr(report, 'wasxfail')
+        if (report.skipped and xfail) or (report.failed and not xfail):
+            file_name = report.nodeid.replace("::", "_")+".png"
+            driver.get_screenshot_as_file(file_name)
 
 

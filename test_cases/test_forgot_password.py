@@ -19,7 +19,7 @@ forgot_pass = page.ForgotPassword(driver)
 
 class TestForgotPass():
 
-    def test_forgot_password_valid_email(self):
+    def test_forgot_pwd_unregistered_email(self):
         driver.launch_app()
         login.verify_all_element()
         login.tap_forgot_password()
@@ -27,11 +27,20 @@ class TestForgotPass():
         forgot_pass.tap_get_reset_link()
         forgot_pass.verify_email_unregistered()
 
-    def test_forgot_password_invalid_format(self):
+    def test_forgot_pwd_invalid_format(self):
         driver.launch_app()
         login.verify_all_element()
         login.tap_forgot_password()
         forgot_pass.input_email(email="tonystark@gmail")
         forgot_pass.tap_get_reset_link()
-        forgot_pass.verify_email_unregistered()
+        forgot_pass.verify_invalid_format()
+
+    def test_forgot_pwd_valid_format(self):
+        driver.launch_app()
+        login.verify_all_element()
+        login.tap_forgot_password()
+        forgot_pass.input_email(email="transsystem@mailinator.com")
+        forgot_pass.tap_get_reset_link()
+        forgot_pass.verify_email_is_sent()
+
 
